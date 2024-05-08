@@ -10,6 +10,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+######### fix from here: 
+# https://forum.djangoproject.com/t/importerror-cannot-import-name-ugettext-lazy-from-django-utils-translation/10943/16
+import django.utils.translation as original_translation
+from django.utils.translation import gettext_lazy
+
+original_translation.ugettext_lazy = gettext_lazy
+########################
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
